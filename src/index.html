@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="./../node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="./../dist/vue-img-preview.js"></script>
+    <style>
+        #app{text-align: center}
+        #app img{width: 100px;height: 100px;margin: 20px;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <span v-for="(item, index) in imgList">
+            <img :src="item" alt="" @click="imgPreview(imgList,index)">
+        </span>
+        <img v-for="imgList" src="" alt="">
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    new Vue({
+        el:"#app",
+        data(){
+            return{
+                imgList:[
+                    "https://bpic.588ku.com/element_banner/20/18/04/3f58d835879b8298a346e71ba49d6509.jpg",
+                    "https://bpic.588ku.com/element_banner/20/18/04/7add12f859b4f0fcd49f5acc6582852e.jpg",
+                    "https://bpic.588ku.com/element_banner/20/18/04/af85da7b05fa441bd9f3cf3b86d5b820.jpg",
+                    "https://car2.autoimg.cn/cardfs/product/g25/M02/6F/6C/1024x0_1_q87_autohomecar__wKgHIFri1SOAKfVsAAKHSS78p2Y630.jpg",
+                    "https://car2.autoimg.cn/cardfs/product/g25/M08/75/67/1024x0_1_q87_autohomecar__wKgHIlri1SOADruPAALqRIqtDOA804.jpg"
+                ]
+            }
+        },
+        methods:{
+            imgPreview(urls,idx){
+                this.$imgPreview(urls,idx);
+            }
+        }
+    })
+</script>
